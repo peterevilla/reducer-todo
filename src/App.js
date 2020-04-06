@@ -1,24 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Form from './components/Form'
 import './App.css';
+import data from './data'
+import TodoList from './components/TodoList';
 
 function App() {
+  
+const [ tasks, setTasks ] = useState(data)
+
+
+const addTask = (item) => {
+
+    setTasks([...tasks, {
+      task: item,
+      id: Date.now(),
+      completed: false
+    }])
+
+    console.log(tasks)
+}
+
+const toggleCompleted = (item) => {
+
+    tasks.map(e => {
+      
+      if(e.id === item) {
+
+          setTasks({...e, completed: !e.completed})
+      }
+    })
+}
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Todo List</h1>
+     <Form addTask={addTask}/>
+     <TodoList toggleCompleted={toggleCompleted} item={tasks}/>
     </div>
   );
 }
