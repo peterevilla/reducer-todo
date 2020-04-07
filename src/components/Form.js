@@ -33,7 +33,7 @@ const Form = (props) => {
                 <button>ADD</button>
             </label>
             <label>
-                <button>DELETE</button>
+                <button onClick={props.deleteTask}>DELETE</button>
             </label>
         </form>
     )
