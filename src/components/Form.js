@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
+import { Form, Button, Label, Input } from 'reactstrap'
 
 
-const Form = (props) => {
+const TodoForm = (props) => {
 
     const  [ item, setItem] = useState('')
 
@@ -19,25 +20,25 @@ const Form = (props) => {
     }
 
     return(
-        <form onSubmit={submitHandler}>
-            <label>
-                <input
+        <Form onSubmit={submitHandler}>
+            <Label>
+                <Input
                 name='item'
                 type='text'
                 placeholder='Insert Task' 
                 values={item}
                 onChange={onchangeHandler}
-                ></input>
-            </label>
-            <label>
-                <button>ADD</button>
-            </label>
-            <label>
-                <button onClick={props.deleteTask}>DELETE</button>
-            </label>
-        </form>
+                ></Input>
+            </Label>
+            <Label>
+                <Button color="success">ADD</Button>
+            </Label>
+            <Label>
+                <Button color="danger" onClick={props.deleteTask}>DELETE</Button>
+            </Label>
+        </Form>
     )
 }
 
 
-export default Form;
+export default TodoForm;
