@@ -1,9 +1,7 @@
-import React, { useState, useReducer } from 'react';
+import React, { useReducer } from 'react';
 import TodoForm from './components/Form'
 import './App.css';
-import data from './data'
 import TodoList from './components/TodoList';
-import { useLocalStorage } from './hooks/useLocalStorage'
 import { initialState, reducer } from './reducers/reducer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
