@@ -27,20 +27,11 @@ const addTask = (item) => {
   }
 
 
-  
-
-
-const toggleCompleted = (id) => {
-
- dispatch({type: 'COMPLETED_TODO', payload: id })
-
-}
-
   return (
     <div className="App">
       <h1>Todo List</h1>
      <TodoForm addTask={addTask} deleteTask={() => { return dispatch({type: "DELETED_TODO"})}} />
-     <TodoList  item={state} key={state.id} toggleCompleted={(toggleCompleted)}/>
+     <TodoList  item={state} key={state.id} toggleCompleted={(id) => {return dispatch({type: 'COMPLETED_TODO', payload: id })}}/>
     </div>
   );
 }
